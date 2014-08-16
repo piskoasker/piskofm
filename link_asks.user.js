@@ -60,16 +60,28 @@ function process(){
         
     });
 
-    $('.hover-link').hover(
-         function() { 
-            $('#quick').css({'top':mouseY+10,'left':mouseX});
+    // $('.hover-link').stop().hover(
+    //      function() { 
+    //         $('#quick').css({'top':mouseY+10,'left':mouseX});
+
+    //         //change this to wait a small amount of time and then load just the question box
+    //         $("#quick").stop(true, true).load("" + $(this).attr("href") + " .questionBox", function(){$("#quick").fadeIn(50)});
+    //       }, 
+    //      function() {  
+    //         $('#quick').stop().fadeOut(50, function(){ $(this).empty()}); 
+    //         //$('#quick').empty();
+    // });
+
+    $('.hover-link').mouseenter(function() { 
+            var position = $(this).position();
+            $('#quick').css({'top':mouseY+ 10,'left':mouseX});
 
             //change this to wait a small amount of time and then load just the question box
-            $("#quick").load("" + $(this).attr("href") + " .questionBox", function(){$("#quick").fadeIn(200)});
-          }, 
-         function() {  
-            $('#quick').stop(true).fadeOut(200, function(){ $(this).empty()}); 
-            //$('#quick').empty();
+            $("#quick").load("" + $(this).attr("href") + " .questionBox").stop(true, true).fadeIn(50);
+    });
+    $('.hover-link').mouseleave(function() { 
+       $('#quick').stop(true,true).fadeOut(50, function(){ $(this).empty()}); 
+
     });
 }
 
