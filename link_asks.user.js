@@ -9,7 +9,6 @@
 
 var elemDiv = document.createElement('div');
 elemDiv.id = "quick";
-App.initQuestionBoxes(elemDiv);
 elemDiv.style.cssText = 'position:absolute;opacity:1;z-index:0;background:#FFF;display:none;border: 2px solid;';
 document.body.appendChild(elemDiv);
 
